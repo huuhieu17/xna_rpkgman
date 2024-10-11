@@ -3,8 +3,16 @@ const request = require('request');
 const path = require('path');
 const JSON5 = require('json5');
 const globby = require('globby');
+require('dotenv').config();
+const env = process.env;
 
-const config = require('./config.json');
+const config = {
+	pkgfolder: env.PKG_FOLDER || "/path/to/folder/with/pkg/files",
+	myip: env.MYIP || "YOUR.SERVER.IP.ADDRESS",
+	ps4ip: env.PS4IP || "YOUR.PS4.IP.ADDRESS",
+	myport: env.MY_PORT || 9999,
+	ps4port: env.PS4_PORT || 12800
+}
 
 const app = express();  
 
